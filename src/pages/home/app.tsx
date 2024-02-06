@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title> Vite TypeScript</title>
+        <title> Andhika Rahmatullah</title>
       </Helmet>
 
       <MainLayout>
