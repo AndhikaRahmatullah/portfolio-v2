@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Typed from 'typed.js';
 // interfaces
+import { ProjectInterface } from '/src/interfaces/project';
 import { ExperienceInterface } from '/src/interfaces/experience';
 //
 import HomeAbout from '../home-about';
 import HomeContact from '../home-contact';
+import HomeProjects from '../home-projects';
 import HomeExperience from '../home-experience';
 
 // ----------------------------------------------------------------------
@@ -13,6 +15,8 @@ const HomeView: React.FC = () => {
   const [devTools, setDevTools] = useState<string[]>([]);
 
   const [experiences, setExperiences] = useState<ExperienceInterface[]>([]);
+
+  const [projects, setProjects] = useState<ProjectInterface[]>([]);
 
   const el = useRef<HTMLSpanElement>(null);
 
@@ -32,7 +36,7 @@ const HomeView: React.FC = () => {
     };
   }, []);
 
-  // DEV TOOLS
+  // DEV TOOLS, EXPERIENCES, PROJECTS
   useEffect(() => {
     const getDevTools = () => {
       const result: string[] = [
@@ -72,21 +76,77 @@ const HomeView: React.FC = () => {
       setExperiences(result);
     };
 
+    const getProjects = () => {
+      const result: ProjectInterface[] = [
+        {
+          id: 'dkjwbdakjkwad',
+          name: 'GBK Istora Senayan',
+          url: 'https://istora-andhikarahmatullah.vercel.app/',
+          image: '/images/gbk.png',
+          descriptions:
+            'The application manages seat reservations for events held at the Istora Senayan Stadium. It also includes a back office for administrators to manage incoming orders from customers.',
+          jobDesc: 'Building the overall user interface of the website, integrating APIs, and handling access for both administrators and users.',
+          techs: ['Javascript', 'NextJS', 'MaterialUI', 'Laravel'],
+        },
+        {
+          id: 'dkjwbdaddkjkwad',
+          name: 'Kanaka Survey Indonesia',
+          url: 'https://kansa.id/',
+          image: '/images/kansa.png',
+          descriptions: 'A marketing web application for survey tools, including a back office, company profile, and pages designed to resemble descriptions of the tools being sold to customers.',
+          jobDesc: 'Building the overall user interface of the website and integrating APIs.',
+          techs: ['Javascript', 'ViteJS', 'MaterialUI', 'Laravel'],
+        },
+        {
+          id: 'ldawndlwlwinwd',
+          name: 'Kean Signature',
+          url: 'https://keansignature.com/',
+          image: '/images/kean.png',
+          descriptions: "An online store selling women's Muslim clothing for a fairly large store in the city of Bogor, buyers can place orders with or without an account.",
+          jobDesc: 'Building the overall user interface of the website, integrating APIs, logic for orders without an account and local storage management, all of which must be encrypted.',
+          techs: ['Typescript', 'ViteJS', 'TailwindCSS', 'Laravel'],
+        },
+        {
+          id: 'dwbdawdnodwdddda',
+          name: 'Admin Kean Signature',
+          url: '',
+          image: '/images/admin-kean.png',
+          descriptions: 'Backoffice admin application for the Kean Signature website and Kean Signature cashier, handling all data from the smallest to the most complex tasks.',
+          jobDesc: 'Creating the entire user interface, handling access to loadable pages between one user and another, automatic logout system, and several mathematical calculations.',
+          techs: ['Javascript', 'ViteJS', 'MaterialUI', 'Laravel'],
+        },
+        {
+          id: 'adjbwhbdabkjbkjb',
+          name: 'Cashier Kean Signature',
+          url: '',
+          image: '/images/cashier-kean.png',
+          descriptions:
+            'A website-based cashier backoffice application for the Kean Signature store (offline), used in more than 4 branches. It includes several features such as inbound product management, returns, and order history from the respective branches.',
+          jobDesc:
+            'Creating the entire user interface, handling access to loadable pages between one user and another, differentiating the display for one branch from another branch, and performing various mathematical calculations.',
+          techs: ['Javascript', 'ViteJS', 'MaterialUI', 'Laravel'],
+        },
+      ];
+
+      setProjects(result);
+    };
+
     getDevTools();
     getExperiences();
+    getProjects();
   }, []);
 
   return (
     <section className="2xl:container dark:bg-dark">
       <section className="flex-col items-center justify-center px-10 pb-16 pt-32 lg:pb-28 lg:pl-40 lg:pr-20 lg:pt-40">
         <div className="">
-          <p className="font-poppins text-center text-5xl font-black text-light transition-all duration-300 md:text-left md:text-6xl lg:text-8xl">
+          <p className="text-center font-poppins text-5xl font-black text-light transition-all duration-300 md:text-left md:text-6xl lg:text-8xl">
             Hello, I'm <br className="md:hidden" /> <span ref={el} className="text-cyan-500" />
           </p>
         </div>
 
         <div className="mt-4">
-          <p className="font-poppins text-center text-xl text-light md:text-left md:text-2xl lg:text-4xl">
+          <p className="text-center font-poppins text-xl text-light md:text-left md:text-2xl lg:text-4xl">
             I'm a <span className="text-cyan-500">Frontend Web Developer</span>
           </p>
         </div>
@@ -111,18 +171,7 @@ const HomeView: React.FC = () => {
 
       <HomeAbout devTools={devTools} />
 
-      <section id="projects" className="my-40 ml-20 bg-blue-300 pt-24">
-        <p className="">Project</p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio maxime, iste qui hic perferendis beatae nisi accusantium eaque natus molestiae repellendus autem ipsam non necessitatibus
-        reiciendis facilis. Quidem reiciendis iure beatae cupiditate? At suscipit libero iste in quo corrupti, facere quasi nobis cupiditate quas aut. Perferendis saepe quidem architecto eveniet
-        laboriosam quam porro nam animi consequuntur dolore autem, molestiae veritatis modi unde rerum inventore explicabo eligendi tempora impedit exercitationem eos rem sunt facilis. Animi
-        doloremque et praesentium asperiores natus, voluptas recusandae, harum porro perspiciatis quam minima. Molestiae expedita ipsam tenetur. Deleniti necessitatibus enim adipisci quae veniam optio
-        unde numquam inventore odio, quam cumque accusantium ut tempora quidem debitis? Quos fugit nam aperiam doloremque tenetur repellendus cumque suscipit consequuntur? Dignissimos ab distinctio
-        quo provident. Eius molestiae unde nulla quia maxime ad quam ullam pariatur iure, cum aperiam aut sed voluptates suscipit. Hic expedita voluptatem vero aliquid, magnam libero saepe officia
-        reiciendis voluptas corporis, molestias tenetur modi eveniet quod ut dolorum atque tempora doloremque harum, deleniti repellat temporibus eius iure! Ab adipisci nisi numquam labore voluptatum
-        quas. Tempore nesciunt odio debitis placeat impedit, sed id neque earum modi distinctio perferendis quidem porro quaerat officiis nemo quae aperiam accusamus commodi, temporibus quasi.
-        Aliquid?
-      </section>
+      <HomeProjects projects={projects} />
 
       <HomeExperience experiences={experiences} />
 
