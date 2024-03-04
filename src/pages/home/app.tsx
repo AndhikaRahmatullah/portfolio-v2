@@ -11,7 +11,10 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title> Andhika Rahmatullah</title>
+        <meta charSet="utf-8" />
+        <title>Andhika Rahmatullah</title>
+        <link rel="canonical" href="https://andhikar-portfolio-v2.vercel.app" />
+        <meta name="keywords" content="andhika,portfolio,andhika rahmatullah,frontend" />
       </Helmet>
 
       <MainLayout>
